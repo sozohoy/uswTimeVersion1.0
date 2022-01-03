@@ -1,34 +1,14 @@
 //
-//  firstSceneCheck.swift
+//  ViewController.swift
 //  uswTimeTable1.0
 //
-//  Created by 한지석 on 2022/01/02.
+//  Created by 한지석 on 2021/12/31.
 //
 
 import UIKit
 import Elliotable
 
-<<<<<<< HEAD
-class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-            super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
-=======
-class ViewController: UIViewController, ElliotableDelegate, ElliotableDataSource{
+class showTimeTable: UIViewController, ElliotableDelegate, ElliotableDataSource{
     
     @IBOutlet weak var timetable: Elliotable!
     
@@ -86,5 +66,4 @@ class ViewController: UIViewController, ElliotableDelegate, ElliotableDataSource
     func numberOfDays(in elliotable: Elliotable) -> Int {
         return dayString.count
     }
->>>>>>> 08467a317439c6856127195161d1aaf046ab3fc9
 }
