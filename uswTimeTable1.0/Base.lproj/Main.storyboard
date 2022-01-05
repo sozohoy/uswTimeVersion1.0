@@ -8,17 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-<<<<<<< HEAD
         <!--Show Time Table-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="showVC" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="showTimeTable" customModule="uswTimeTable1_0" customModuleProvider="target" sceneMemberID="viewController">
-=======
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController storyboardIdentifier="timeTable" modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="uswTimeTable1_0" customModuleProvider="target" sceneMemberID="viewController">
->>>>>>> 08467a317439c6856127195161d1aaf046ab3fc9
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -28,6 +21,15 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oOI-Tv-ogo">
+                                <rect key="frame" x="327" y="5" width="67" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="testRemove:" destination="BYZ-38-t0r" eventType="touchUpInside" id="PKK-jX-1UH"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -43,12 +45,7 @@
         <!--Usw Make Schedule-->
         <scene sceneID="qmL-H5-WhJ">
             <objects>
-<<<<<<< HEAD
                 <viewController storyboardIdentifier="makeVC" modalPresentationStyle="fullScreen" id="db6-KX-Ct2" customClass="uswMakeSchedule" customModule="uswTimeTable1_0" customModuleProvider="target" sceneMemberID="viewController">
-=======
-                <placeholder placeholderIdentifier="IBFirstResponder" id="a9Y-jk-UFF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <viewController storyboardIdentifier="uswMakeSchedule" modalPresentationStyle="fullScreen" id="db6-KX-Ct2" customClass="uswMakeSchedule" customModule="uswTimeTable1_0" customModuleProvider="target" sceneMemberID="viewController">
->>>>>>> 08467a317439c6856127195161d1aaf046ab3fc9
                     <view key="view" contentMode="scaleToFill" id="SWG-IY-RoB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -77,12 +74,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Button"/>
                                 <connections>
-<<<<<<< HEAD
                                     <action selector="makeBtnClicked:" destination="db6-KX-Ct2" eventType="touchUpInside" id="sHf-cL-ryK"/>
-=======
-                                    <action selector="buttonClicked:" destination="db6-KX-Ct2" eventType="touchUpInside" id="9NR-wh-0Ld"/>
-                                    <segue destination="BYZ-38-t0r" kind="presentation" id="qbF-WJ-KyU"/>
->>>>>>> 08467a317439c6856127195161d1aaf046ab3fc9
                                 </connections>
                             </button>
                         </subviews>
@@ -90,27 +82,19 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="buttonSwitch" destination="t0w-Ai-HmP" id="nhL-zF-YGz"/>
                         <outlet property="nameTextField" destination="L2g-ut-ZPj" id="8hl-Pf-uIA"/>
                         <outlet property="semeTextField" destination="gRH-Tg-of3" id="EYJ-D5-7Mx"/>
                         <outlet property="yearTextField" destination="aN2-yV-Ix0" id="gup-Hg-sVY"/>
                     </connections>
                 </viewController>
-<<<<<<< HEAD
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a9Y-jk-UFF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-=======
->>>>>>> 08467a317439c6856127195161d1aaf046ab3fc9
             </objects>
             <point key="canvasLocation" x="1821.7391304347827" y="67.633928571428569"/>
         </scene>
         <!--First Scene Check-->
         <scene sceneID="Du7-aC-aic">
             <objects>
-<<<<<<< HEAD
                 <viewController storyboardIdentifier="firstVC" id="rOe-kG-oam" customClass="firstSceneCheck" customModule="uswTimeTable1_0" customModuleProvider="target" sceneMemberID="viewController">
-=======
-                <viewController id="rOe-kG-oam" customClass="firstSceneCheck" customModule="uswTimeTable1_0" customModuleProvider="target" sceneMemberID="viewController">
->>>>>>> 08467a317439c6856127195161d1aaf046ab3fc9
                     <view key="view" contentMode="scaleToFill" id="zja-ke-7Ns">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,11 +105,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="새 시간표 만들기"/>
                                 <connections>
-<<<<<<< HEAD
                                     <action selector="newBtnClicked:" destination="rOe-kG-oam" eventType="touchUpInside" id="eQ7-yC-bLI"/>
-=======
-                                    <segue destination="db6-KX-Ct2" kind="presentation" id="h5O-HK-XSU"/>
->>>>>>> 08467a317439c6856127195161d1aaf046ab3fc9
                                 </connections>
                             </button>
                         </subviews>
@@ -149,7 +129,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="rOe-kG-oam" kind="relationship" relationship="rootViewController" id="QA3-NM-x7q"/>
+                        <segue destination="rOe-kG-oam" kind="relationship" relationship="rootViewController" id="AMj-a8-76V"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0N1-HR-MKA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
