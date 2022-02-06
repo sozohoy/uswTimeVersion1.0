@@ -12,14 +12,16 @@ import RealmSwift
 class showTimeTable: UIViewController, ElliotableDelegate, ElliotableDataSource{
 
     @IBOutlet weak var timetable: Elliotable!
-    
+    @IBOutlet weak var timeTableNameTxt: UILabel!
     let dayString: [String] = ["월", "화", "수", "목", "금"]
-    
-    let courseList: [ElliottEvent] = [ElliottEvent(courseId: "c0001", courseName: "운영체제론", roomName: "IT Building 21204", professor: "TEST", courseDay: .tuesday, startTime: "09:00", endTime: "10:15", textColor: UIColor.white, backgroundColor: .purple), ElliottEvent(courseId: "c0002", courseName: "데이터 구조", roomName: "IT Building 21204", professor: "TEST", courseDay: .thursday, startTime: "10:00", endTime: "12:00", textColor: UIColor.white, backgroundColor: .blue), ElliottEvent(courseId: "c0002", courseName: "데이터베이스", roomName: "IT Building 21204", professor: "TEST", courseDay: .friday, startTime: "14:00", endTime: "15:00", textColor: UIColor.white, backgroundColor: .blue), ElliottEvent(courseId: "c0002", courseName: "알고리즘", roomName: "IT Building 21204", professor: "TEST", courseDay: .tuesday, startTime: "13:00", endTime: "15:00", textColor: UIColor.white, backgroundColor: .blue)] // 시간표 강의 아이템
-    
+    var courseList: [ElliottEvent] = []// 시간표 강의 아이템
+    let course_1 = ElliottEvent(courseId: "c0001", courseName: "Operating System", roomName: "IT Building 21204", professor: "TEST", courseDay: ElliotDay.init(rawValue: 1)!, startTime: "09:00", endTime: "13:15", backgroundColor: UIColor.purple)
+    var timeTableName = ""
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        timeTableNameTxt.text = timeTableName
+        courseList.append(course_1)
 //        timetable.courseItems = courseList
    
         timetable.delegate = self
@@ -46,13 +48,24 @@ class showTimeTable: UIViewController, ElliotableDelegate, ElliotableDataSource{
         timetable.isFullBorder = true // 시간표 겉 테두리
     
         timetable.reloadData()
+        
+        // json 시간표 데이터 입력
 }
  
+    func readCourseDB(){
+        
+    }
     
     @IBAction func testRemove(_ sender: Any) {
         UserDefaults.standard.removeObject(forKey: "isLogin")
         let makeVC = self.storyboard?.instantiateViewController(withIdentifier: "makeVC") as! uswMakeSchedule
         self.navigationController?.pushViewController(makeVC, animated: true)
+    }
+    
+    @IBAction func testView(_ sender: Any) {
+        let listVC = self.storyboard?.instantiateViewController(withIdentifier: "listVC") as! listCourseData
+        listVC.checkTimeTable = timeTableName
+        self.navigationController?.pushViewController(listVC, animated: true)
     }
     
     func courseItems(in elliotable: Elliotable) -> [ElliottEvent] {
@@ -74,4 +87,8 @@ class showTimeTable: UIViewController, ElliotableDelegate, ElliotableDataSource{
     func numberOfDays(in elliotable: Elliotable) -> Int {
         return dayString.count
     }
+}
+
+extension showTimeTable{
+
 }

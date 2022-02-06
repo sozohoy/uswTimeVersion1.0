@@ -8,35 +8,57 @@
 import UIKit
 import RealmSwift
 import Elliotable
+import FirebaseDatabase
 
 class firstSceneCheck: UIViewController {
-        let realm = try! Realm()
+   
+    let realm = try! Realm()
     
+    
+    private let uswFireDB = Database.database(url: "https://schedulecheck-4ece8-default-rtdb.firebaseio.com/").reference()
     override func viewDidLoad() {
         super.viewDidLoad()
+        getExternalData()
+        //realm.delete(realm.objects(userDB.self))
         print(Realm.Configuration.defaultConfiguration.fileURL!)
-     //    save()
+        //try! realm.commitWrite()
+    //    save()
 }
-    func save(){
-        let timetableDB = testCourse()
-        timetableDB.courseId = "c01"
-        timetableDB.courseName = "dataFu"
-        timetableDB.roomName = "B201"
-        timetableDB.professor = "joe"
-        timetableDB.startTime = "11:00"
-        timetableDB.endTime = "12:00"
-        timetableDB.courseDay = 2
-        print(timetableDB.courseId)
-        try! realm.write {
-            realm.add(timetableDB)
-        }
-}
-    
-    
 
     @IBAction func newBtnClicked(_ sender: Any) {
         let makeVC = self.storyboard?.instantiateViewController(withIdentifier: "makeVC") as! uswMakeSchedule
         self.navigationController?.pushViewController(makeVC, animated: true)
+    }
+
+    func getExternalData(){
+        uswFireDB.observe(.value) { snapshot in
+            let countDB = Int(snapshot.childrenCount)
+            for i in 0...countDB {
+                let insideDB = testCourseData()
+                self.uswFireDB.child("\(i)").observeSingleEvent(of: .value) { [self] snapshot in
+                    let value = snapshot.value as? NSDictionary
+                    insideDB.startTime = value?["startTime"] as? String ?? ""
+                    insideDB.endTime = value?["endTime"] as? String ?? ""
+                    insideDB.roomName = value?["roomName"] as? String ?? ""
+                    insideDB.professor = value?["professor"] as? String ?? ""
+                    insideDB.classification = value?["classification"] as? String ?? ""
+                    insideDB.courseId = value?["courseId"] as? String ?? ""
+                    insideDB.num = value?["num"] as? Int ?? 0
+                    insideDB.courseName = value?["courseName"] as? String ?? ""
+                    insideDB.classNum = value?["classNum"] as? String ?? ""
+                    insideDB.major = value?["major"] as? String ?? ""
+                    insideDB.credit = value?["credit"] as? Int ?? 0
+                    insideDB.time = value?["time"] as? String ?? ""
+                    insideDB.courseDay = value?["courseDay"] as? String ?? ""
+                    insideDB.dbCnt = countDB
+                    print("check ur db\(i)")
+                    try! self.realm.write{ 
+                        self.realm.add(insideDB)
+                    }
+                }
+            }
+            
+        }
     }
     
 }
